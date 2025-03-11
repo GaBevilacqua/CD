@@ -71,7 +71,13 @@ def empate_santos(df):
     print(f"Empates: {empate_count} ({porcentagem_empate:.2f}%)")
     print(total_jogos)
 
+def diadejogo(dia, mes, ano):
+    matchday = df[(df["day"]== dia) & (df["month"]== mes) & (df["year"]== ano)]
+    print(matchday)
 
+def rodada(rodada, ano):
+    rodaday = df[(df["round"] == rodada) & (df["year"]== ano)]
+    print(rodaday)
 
 
 #Primeiras Linhas
@@ -88,8 +94,10 @@ def empate_santos(df):
 
 
 
-mostrar_jogos_santos(df)
-#mostrar_jogos_santosxcorinthians(df)
+#mostrar_jogos_santos(df)
+#mostrar_jogos_santo(df["day"]== dia)sxcorinthians(df)
 #vitoria_santos(df)
 #derrota_santos(df)
 #empate_santos(df)
+#diadejogo(5,8,2018)
+rodada(38,2015)
