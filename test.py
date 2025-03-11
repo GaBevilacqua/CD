@@ -12,11 +12,67 @@ def mostrar_jogos_santos(df):
     print(santos_em_casa)
 
 def mostrar_jogos_santosxcorinthians(df):
-    # Filtra apenas os jogos em que o Santos é o time da casa e mais que 5 gols
+    # Filtra apenas os jogos entre Corinthians e Santo
     santosxcorinthians = df[((df["hometeam"] == "Santos") & (df["visitingteam"] == "Corinthians")) |
                                   ((df["hometeam"] == "Corinthians") & (df["visitingteam"] == "Santos"))]
     # Exibe os jogos
     print(santosxcorinthians)
+
+def vitoria_santos(df):
+    # Filtra as vitórias
+    santosvictory = df[((df["hometeam"] == "Santos") & (df["goalsht"] > df["goalsvt"])) | 
+                        ((df["visitingteam"] == "Santos") & (df["goalsvt"] > df["goalsht"]))]
+    # Número de vitórias
+    vitoria_count = len(santosvictory)
+    
+    # Filtra todos os jogos do Santos
+    jogos_santos = df[(df["hometeam"] == "Santos") | (df["visitingteam"] == "Santos")]
+    total_jogos = len(jogos_santos)
+    
+    # Cálculo da porcentagem de vitórias
+    porcentagem_vitoria = (vitoria_count / total_jogos) * 100
+    
+    # Exibe os resultados
+    print(f"Vitórias: {vitoria_count} ({porcentagem_vitoria:.2f}%)")
+    print(santosvictory)
+
+def derrota_santos(df):
+    # Filtra as derrotas
+    santosdefeat = df[((df["hometeam"] == "Santos") & (df["goalsht"] < df["goalsvt"])) | 
+                       ((df["visitingteam"] == "Santos") & (df["goalsvt"] < df["goalsht"]))]
+    # Número de derrotas
+    derrota_count = len(santosdefeat)
+    
+    # Filtra todos os jogos do Santos
+    jogos_santos = df[(df["hometeam"] == "Santos") | (df["visitingteam"] == "Santos")]
+    total_jogos = len(jogos_santos)
+    
+    # Cálculo da porcentagem de derrotas
+    porcentagem_derrota = (derrota_count / total_jogos) * 100
+    
+    # Exibe os resultados
+    print(f"Derrotas: {derrota_count} ({porcentagem_derrota:.2f}%)")
+
+def empate_santos(df):
+    # Filtra os empates
+    santosigual = df[((df["hometeam"] == "Santos") & (df["goalsht"] == df["goalsvt"])) | 
+                      ((df["visitingteam"] == "Santos") & (df["goalsvt"] == df["goalsht"]))]
+    # Número de empates
+    empate_count = len(santosigual)
+    
+    # Filtra todos os jogos do Santos
+    jogos_santos = df[(df["hometeam"] == "Santos") | (df["visitingteam"] == "Santos")]
+    total_jogos = len(jogos_santos)
+    
+    # Cálculo da porcentagem de empates
+    porcentagem_empate = (empate_count / total_jogos) * 100
+    
+    # Exibe os resultados
+    print(f"Empates: {empate_count} ({porcentagem_empate:.2f}%)")
+    print(total_jogos)
+
+
+
 
 #Primeiras Linhas
 #print(df.head())
@@ -32,5 +88,8 @@ def mostrar_jogos_santosxcorinthians(df):
 
 
 
-#mostrar_jogos_santos(df)
-mostrar_jogos_santosxcorinthians(df)
+mostrar_jogos_santos(df)
+#mostrar_jogos_santosxcorinthians(df)
+#vitoria_santos(df)
+#derrota_santos(df)
+#empate_santos(df)
