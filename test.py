@@ -79,6 +79,9 @@ def rodada(rodada, ano):
     rodaday = df[(df["round"] == rodada) & (df["year"]== ano)]
     print(rodaday)
 
+def jogostime(time, temporada):
+    aux = df[(((df["hometeam"] == time) | (df["visitingteam"] == time)) & (df["season"] == temporada))]
+    print(aux)
 
 #Primeiras Linhas
 #print(df.head())
@@ -100,4 +103,5 @@ def rodada(rodada, ano):
 #derrota_santos(df)
 #empate_santos(df)
 #diadejogo(5,8,2018)
-rodada(38,2015)
+#rodada(38,2015)
+jogostime("Grêmio", 2015)
