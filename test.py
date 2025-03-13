@@ -46,6 +46,7 @@ def empate_santos(df):
     print(f"Empates: {empate_count} ({porcentagem_empate:.2f}%)")
     print(total_jogos)
 
+
 def diadejogo(dia, mes, ano):
     matchday = df[(df["day"]== dia) & (df["month"]== mes) & (df["year"]== ano)]
     print(matchday)
@@ -86,10 +87,14 @@ def mediaGolsTemporada(temporada):
     goalsG = (goalsH+goalsV)
     goalsGR = goalsG/38
     goalsGRT = goalsGR/10
+    goalsHMedia = goalsH/38
+    goalsVMedia = goalsV/38
 
-    print("Total de Gols de equipes da Casa: ", goalsV)
+    print("Total de Gols de equipes da Casa: ", goalsH)
     print("Total de Gols de equipes Visitantes: ", goalsV)
     print("Total de Gols Geral: ", goalsG)
+    print("Média de Gols dos times da casa por rodada: ", goalsHMedia)
+    print("Média de Gols dos times visitantes por rodada: ", goalsVMedia)
     print("Média de Gols por rodada: ", goalsGR)
     print("Méida de Gols por jogo: ", goalsGRT)
 
@@ -120,4 +125,4 @@ def mediaGolsTemporada(temporada):
 #jogostime("Grêmio", 2015)
 #jogostimes("Cruzeiro", "Grêmio")
 #mediaGolsTemporada("Grêmio", 2019)
-mediaGolsTemporada(2019)
+#mediaGolsTemporada(2019)
