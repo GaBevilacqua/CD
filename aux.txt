@@ -1,0 +1,17 @@
+def mediaGolsTemporada(temporada):
+    media= df.groupby("season").agg(
+        mediaCasa = ("goalsht", "mean"),
+        mediaVisitante = ("goalsvt", "mean")
+        
+    ).round(3)
+    media["mediaGeral"] = (media["mediaCasa"] + media["mediaVisitante"])
+
+
+    aux = df[(df["season"] == temporada)]
+    goalsH = aux["goalsht"].sum()
+    goalsV = aux["goalsht"].sum()
+
+    
+    print(media)
+    print("Total de gols de equipes da Casa: ",goalsH)
+    print("Total de gols de equipes Visitantes: ", goalsV)
