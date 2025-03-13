@@ -83,6 +83,10 @@ def jogostime(time, temporada):
     aux = df[(((df["hometeam"] == time) | (df["visitingteam"] == time)) & (df["season"] == temporada))]
     print(aux)
 
+def jogostimes(time, time2):
+    aux = df[(((df["hometeam"] == time) | (df["visitingteam"] == time)) & ((df["hometeam"] == time2) | (df["visitingteam"] == time2)))]
+    print(aux)
+
 #Primeiras Linhas
 #print(df.head())
 
@@ -105,3 +109,4 @@ def jogostime(time, temporada):
 #diadejogo(5,8,2018)
 #rodada(38,2015)
 jogostime("Grêmio", 2015)
+jogostimes("Cruzeiro", "Grêmio")
