@@ -125,4 +125,4 @@ def mediaGolsTemporada(temporada):
 #jogostime("Grêmio", 2015)
 #jogostimes("Cruzeiro", "Grêmio")
 #mediaGolsTemporada("Grêmio", 2019)
-#mediaGolsTemporada(2019)
+mediaGolsTemporada(2019)
