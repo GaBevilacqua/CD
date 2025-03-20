@@ -35,4 +35,16 @@ def plot_imports_by_year(pais):
     plt.show()
 
 # Exemplo de uso da função
-plot_imports_by_year("BRAZIL")
+#plot_imports_by_year("WORLD")
+
+def CPY(com):
+    aux = df[(df["Commodity"] == com) &(df["Country"] == "BRAZIL") ] 
+    print(aux)
+#(df["Unit of Measure"] == "percent")
+
+def Wine(pais):
+    aux = df[(df["Commodity"] == "Wine") & (df["Country"] == pais)]
+    print(aux)
+
+#CPY("Meats")
+Wine("ITALY")
